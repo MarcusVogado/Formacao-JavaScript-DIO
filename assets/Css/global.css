@@ -85,7 +85,28 @@ body {
     max-width: 100%;
     height: 70px;
 }
+.main__content-buton{
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+}
 
+#loadMoreButton{
+    height: 40px;
+    width: 120px;
+    text-transform: capitalize;
+    text-align: center;
+    color: #FFF;
+    background-color: #a98ff0;
+    border: none;
+    border-radius:.7rem;
+
+}
+#loadMoreButton:hover{
+    cursor:pointer;
+    outline: 2px solid #678fee;
+    filter:brightness(1.2)
+}
 /* MEDIA QUERIES HIGH */
 @media screen and (min-width:1181px) {
 
@@ -154,7 +175,7 @@ body {
     background-color: #678fee;
 }
 
-.eletric {
+.electric {
     background-color: #f7cf2e;
 }
 
