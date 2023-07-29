@@ -3,13 +3,16 @@
 //E utilizando a promise (then "try" catch finally )
 const pokemonList = document.getElementById('list-pokemons');
 const loadMoreButton = document.getElementById('loadMoreButton');
-const limit = 5;
+const limit = 10;
 let offset = 0;
-const pokemonLimitRecords=150;
+const pokemonLimitRecords=151;
 loadPokemonItens(offset, limit);
 
-
 function loadPokemonItens(offset, limit) {
+    const listPokemonsLocal= pokeApi.GetPokemons(offset,limit);
+    
+    // console.log(listPokemonsLocal);
+    
     pokeApi.GetPokemons(offset, limit)
         .then((pokemonsResponse = []) => {
             pokemonList.innerHTML += pokemonsResponse.map((pokemon) => `
@@ -32,7 +35,6 @@ function loadPokemonItens(offset, limit) {
 loadMoreButton.addEventListener('click', () => {
     offset += limit;
         const recordNexPage= offset+limit;
-
     if(recordNexPage>=pokemonLimitRecords){ 
         const newLimitRecord= pokemonLimitRecords - offset;       
         loadPokemonItens(offset, newLimitRecord)
@@ -42,5 +44,8 @@ loadMoreButton.addEventListener('click', () => {
     }    
 })
 
-
-
+function transferData(){
+const dataToTransfer= document.querySelector('.pokemon__item-number').textContent;
+localStorage.setItem('DataToTransfer',dataToTransfer);
+window.location.href="pokeDetailsPage.html"
+}

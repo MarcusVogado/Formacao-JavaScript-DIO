@@ -40,6 +40,10 @@ body {
     display: flex;
     flex-direction: column;
 }
+.pokemon__item:hover{
+    cursor: pointer;
+    filter:brightness(1.1);
+}
 
 .pokemon__item__detail {
     display: flex;
